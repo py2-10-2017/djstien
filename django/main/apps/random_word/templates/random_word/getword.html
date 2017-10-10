@@ -1,0 +1,14 @@
+<html>
+        <head>
+            <title>Random Word Generator</title>
+        </head>
+        <body>
+            <h3>You asked for a word. It is:</h3>
+            {{request.session.myword}}
+            <p>This means my second teplate loaded.</p>
+            <form action='/getword' method='POST'>
+                {% csrf_token %}
+                <input type="submit" value="Submit to get a new word">
+            <form>
+        </body>
+</html>

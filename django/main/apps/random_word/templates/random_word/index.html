@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Random Word Generator</title>
+    </head>
+    <body>
+        <h3>Welcome to the random word generator!</h3>
+        <p>This means my teplate loaded.</p>
+        <form action='/getword' method='POST'>
+            {% csrf_token %}
+            <input type="submit" value="Submit to get a new word">
+        <form>
+    </body>
+</html>
