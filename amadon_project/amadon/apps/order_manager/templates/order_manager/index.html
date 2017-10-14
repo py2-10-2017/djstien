@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Amadon Ordering Service</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'order_manager/css/local.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <h3>Welcome to Amadon Ordering Service</h3>
+        <p>Please select the items you wish to purchase.</p>
+        <form action="item_1" method="POST">
+            {% csrf_token %}
+            <p>Item 1- Dojo T-Shirt. Price: $20</p>
+            <select name='quantity'>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <input type='hidden' name='product_id' value='1'>
+            <input type='submit' value='Buy'>
+        </form>
+        <form action="item_2" method="POST">
+            {% csrf_token %}
+            <p>Item 2- Dojo Coffee Mug. Price: $5</p>
+            <select name='quantity'>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <input type='hidden' name='product_id' value='2'>
+            <input type='submit' value='Buy'>
+        </form>
+        <form action="item_3" method="POST">
+            {% csrf_token %}
+            <p>Item 3- Dojo Mousepad. Price: $2</p>
+            <select name='quantity'>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <input type='hidden' name='product_id' value='3'>
+            <input type='submit' value='Buy'>
+        </form>
+        <form action="item_4" method="POST">
+            {% csrf_token %}
+            <p>Item 4- Dojo Diamond Earrings. Price: $200</p>
+            <select name='quantity'>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <input type='hidden' name='product_id' value='4'>
+            <input type='submit' value='Buy'>
+        </form>
+    </body>
+</html>
+

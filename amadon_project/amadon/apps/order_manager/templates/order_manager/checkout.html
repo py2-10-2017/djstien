@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Amadon Ordering Service</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'order_manager/css/local.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <h3>Checkout</h3>
+        <p>Thank you. You purchased {{ quantity }} item(s) at ${{ price }} per item. We charged your credit card for ${{ total }}.</p>
+        <form action="back" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Go Back">
+        </form>
+    </body>
+</html>
