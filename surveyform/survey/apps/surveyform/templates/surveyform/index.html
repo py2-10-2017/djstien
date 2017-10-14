@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Survey Form</title>
+    </head>
+    <body>
+        <h1>Welcome to the big survey!</h1>
+        <div id = "form_sub">
+        <form action="process" method="POST">
+            {% csrf_token %}
+            <p>Name:</p><input type="text" name="name">
+            <p>Location:</p><input type="text" name="location">
+            <p>Favorite Language</p><input type="text" name="language">
+            <input type="submit">
+    </body>
+</html>
