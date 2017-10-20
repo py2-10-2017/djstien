@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Semirestful Users</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h3>Semirestful users</h3>
+            <table padding="2" border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th><th>Email</th><th>Created At</th><th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for people in all_people %}
+                            <tr>
+                                <td>{{ people.name }}</td><td>{{ people.email }}</td><td>{{  people.created_at }}</td><td><a href="/users/{{people.id}}">Show</a></td>
+                        {% endfor %}
+                            </tr>
+                </tbody>
+            </table>
+            
+            <form action="/users/add" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Add a user">
+            </form>
+        </div>
+    </body>
+</html>

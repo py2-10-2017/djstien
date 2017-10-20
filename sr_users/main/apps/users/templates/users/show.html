@@ -1,0 +1,18 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <p>Name:</p>
+        {{ show_user.name }}
+        <p>Email:</p>
+        {{ show_user.email }}
+        <p>Created at:</p>
+        {{ show_user.created_at }}
+        <form action="users/update" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="editid" value="{{ show_user.id }}">
+            <input type="submit" value="Edit user">
+        </form>
+        <a href="/users">Go back</a>
+    </body>
+</html>
