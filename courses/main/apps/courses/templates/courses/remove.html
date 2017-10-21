@@ -1,0 +1,15 @@
+<html>
+    <head>
+    </head>
+    <body>
+    <p>Remove Course {{ rem_course.title }} ?</p>
+    <p>Name: {{ rem_course.title }}</p>
+    <p>Description: {{ rem_course.description }}</p>
+    <a href="/">No, go back</a>
+    <form action="/courses/destroy" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="remid" value="{{rem_course.id}}">
+        <input type="submit" value="Yes, DELETE FOREVER!!!!">
+    </form>
+    </body>
+</html>

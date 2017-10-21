@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Courses for Students</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h2>Courses for Students</h2>
+            <p>Add a new course:</p>
+            <form action="/courses/add" method="POST">
+                {% csrf_token %}
+                <input type="text" name="title" placeholder="course name">
+                <input type="text" name="description" placeholder="description">
+                <input type="submit" value="Add a course">
+            </form>
+            {% for errors in title %}
+            {{ errors }} 
+            {% endfor %}
+
+            <table padding="2" border="1">
+                <thead>
+                    <tr>
+                        <th>Course</th><th>Description</th><th>Created At</th><th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for courses in course_list %}
+                            <tr>
+                                <td>{{ courses.title }}</td><td>{{ courses.description }}</td><td>{{  courses.created_at }}</td><td>
+                                    <form action="courses/remove/{{courses.id}}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="removeid" value="{{ courses.id }}">
+                                        <input type="submit" value="Remove">
+                                    </form>
+                                </td>
+                        {% endfor %}
+                            </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
