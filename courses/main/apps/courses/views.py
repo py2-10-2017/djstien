@@ -21,8 +21,10 @@ def addclass(request):
     if len(errors):
         print "validation fail"
         print errors
+        courses = Course.objects.all()
         context = {
-            "title" : errors
+            "title" : errors,
+            "course_list" : courses
         }
         return render(request, "courses/index.html", context)
     else:
