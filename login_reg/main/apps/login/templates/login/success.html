@@ -1,0 +1,14 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Results</h1>
+        {% if regis_user %}
+        <h3>Sucess! You are now registered, {{ regis_user.first_name }}</h3>
+        {% endif %}
+        {% if logged_user %}
+        <h3>Success! You have logged in, {{ logged_user.first_name }}</h3>
+        {% endif %}
+        <a href="/">Go Back</a>
+    </body>
+</html>

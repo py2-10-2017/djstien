@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Register or Log in</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h3>Welcome</h3>
+            <h5>New User? Register here.</h5>
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            <form action="/login/useradd" method="POST">
+                {% csrf_token %}
+                <input type="text" name="first_name" placeholder="first name">
+                <input type="text" name="last_name" placeholder="last name">
+                <input type="text" name="email" placeholder="email address">
+                <input type="text" name="password" placeholder="password">
+                <input type="text" name="confirm_pw" placeholder="confirm password">
+                <input type="submit" value="Register">
+            </form>
+
+            <h5>Already have an account? Log in here</h5>
+            <form action="/login/userlogin" method="POST">
+                {% csrf_token %}
+                <input type="text" name="email" placeholder="email address">
+                <input type="text" name="password" placeholder="password">
+                <input type="submit" value="Login">
+            </form>
+
+            <table padding="2" border="1">
+                    <thead>
+                        <tr>
+                            <th>first</th><th>last</th><th>email</th><th>pw</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {% for users in users_list %}
+                                <tr>
+                                    <td>{{ users.first_name }}</td><td>{{ users.last_name }}</td><td>{{  users.email }}</td><td> {{ users.password }}
+                                    </td>
+                            {% endfor %}
+                                </tr>
+                    </tbody>
+                </table>
+        </div>
+    </body>
+</html>
